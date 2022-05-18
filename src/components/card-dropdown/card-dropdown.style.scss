@@ -3,7 +3,7 @@
 .cart-dropdown-container {
     position: absolute;
     width: 240px;
-    height: 340px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -12,6 +12,7 @@
     top: 90px;
     right: 40px;
     z-index: 5;
+
   
     .empty-message {
       font-size: 18px;
@@ -19,10 +20,10 @@
     }
   
     .cart-items {
-      height: 240px;
+      height: 500px;
       display: flex;
       flex-direction: column;
-      overflow: scroll;
+      // overflow: scroll;
     }
   
     button {
