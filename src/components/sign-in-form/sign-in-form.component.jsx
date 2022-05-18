@@ -1,4 +1,4 @@
-import { signInWithGooglePopup, signInWithGoogleRedirect, signInAuthUserWithEmailAndPassWord, createUserDocumentFromAuth, auth } from '../../ultils/firebase/firebase.utils'
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPassWord, createUserDocumentFromAuth, auth } from '../../ultils/firebase/firebase.utils'
 import './sign-in-form.style.scss'
 import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
@@ -28,23 +28,18 @@ const SignInForm = () => {
     }
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        const userDocRef = await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
 
     }
 
-    const logGoogleRedirectUser = async () => {
-        const { user } = await signInWithGoogleRedirect();
-
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
 
-            const response = await signInAuthUserWithEmailAndPassWord(email, password);
-            console.log(response);
+            const { user } = await signInAuthUserWithEmailAndPassWord(email, password);
+
             resetFormFields();
         }
         catch (error) {
